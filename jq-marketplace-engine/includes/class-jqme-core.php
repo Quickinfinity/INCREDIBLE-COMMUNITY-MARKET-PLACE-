@@ -79,6 +79,12 @@ class Core {
 		// Notification engine listens to booking/provider/listing lifecycle hooks.
 		$this->modules['notifications'] = new Notifications\NotificationEngine();
 
+		// Claims and condition reports handler.
+		$this->modules['claim_handler'] = new Claims\ClaimHandler();
+
+		// Review handler — auto-creates reviews on booking completion.
+		$this->modules['review_handler'] = new Reviews\ReviewHandler();
+
 		if ( is_admin() ) {
 			$this->modules['admin'] = new Admin\Admin();
 		}
