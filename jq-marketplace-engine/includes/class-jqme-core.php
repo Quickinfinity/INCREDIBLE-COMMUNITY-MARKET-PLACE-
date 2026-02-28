@@ -73,6 +73,12 @@ class Core {
 		$this->modules['provider_handler'] = new Providers\ProviderHandler();
 		$this->modules['listing_handler']  = new Listings\ListingHandler();
 
+		// Booking handler registers booking shortcodes and form actions.
+		$this->modules['booking_handler'] = new Bookings\BookingHandler();
+
+		// Notification engine listens to booking/provider/listing lifecycle hooks.
+		$this->modules['notifications'] = new Notifications\NotificationEngine();
+
 		if ( is_admin() ) {
 			$this->modules['admin'] = new Admin\Admin();
 		}
