@@ -1,0 +1,129 @@
+/**
+ * JQ Marketplace Engine — Public styles.
+ */
+
+/* Forms */
+.jqme-form-wrap {
+	max-width: 720px;
+}
+
+.jqme-form label {
+	display: block;
+	font-weight: 600;
+	margin-bottom: 4px;
+}
+
+.jqme-form input[type="text"],
+.jqme-form input[type="email"],
+.jqme-form input[type="tel"],
+.jqme-form input[type="url"],
+.jqme-form input[type="number"],
+.jqme-form textarea,
+.jqme-form select {
+	width: 100%;
+	max-width: 480px;
+	padding: 8px 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 14px;
+}
+
+.jqme-form textarea {
+	max-width: 100%;
+}
+
+.jqme-form p {
+	margin-bottom: 16px;
+}
+
+.jqme-form .required {
+	color: #c0392b;
+}
+
+/* Buttons */
+.jqme-btn {
+	display: inline-block;
+	padding: 10px 24px;
+	border: none;
+	border-radius: 4px;
+	font-size: 14px;
+	font-weight: 600;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.jqme-btn--primary {
+	background: #2563eb;
+	color: #fff;
+}
+
+.jqme-btn--primary:hover {
+	background: #1d4ed8;
+}
+
+.jqme-btn-link {
+	background: none;
+	border: none;
+	color: #2563eb;
+	cursor: pointer;
+	text-decoration: underline;
+	padding: 0;
+	font-size: inherit;
+}
+
+/* Notices */
+.jqme-notice {
+	padding: 12px 16px;
+	border-radius: 4px;
+	margin-bottom: 20px;
+}
+
+.jqme-notice--success {
+	background: #d4edda;
+	color: #155724;
+	border: 1px solid #c3e6cb;
+}
+
+.jqme-notice--error {
+	background: #f8d7da;
+	color: #721c24;
+	border: 1px solid #f5c6cb;
+}
+
+/* Tables */
+.jqme-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.jqme-table th,
+.jqme-table td {
+	padding: 10px 12px;
+	border-bottom: 1px solid #e5e7eb;
+	text-align: left;
+}
+
+.jqme-table th {
+	background: #f9fafb;
+	font-weight: 600;
+	font-size: 13px;
+}
+
+/* Dashboard stats */
+.jqme-stat {
+	background: #f9fafb;
+	padding: 16px;
+	border-radius: 6px;
+	text-align: center;
+}
+
+.jqme-stat strong {
+	display: block;
+	font-size: 28px;
+	color: #1f2937;
+}
+
+.jqme-stat span {
+	font-size: 13px;
+	color: #6b7280;
+}

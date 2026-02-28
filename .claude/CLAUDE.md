@@ -2,6 +2,7 @@
 
 - **Created:** 2026-02-27
 - **Owner:** Joe Quick
+- **Repo:** https://github.com/Quickinfinity/INCREDIBLE-COMMUNITY-MARKET-PLACE-
 - **Description:** Custom WordPress marketplace plugin for equipment rentals, equipment sales, and service bookings
 
 ## Objectives

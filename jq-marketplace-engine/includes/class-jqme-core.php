@@ -69,6 +69,10 @@ class Core {
 		$this->modules['roles']    = new Roles\Roles();
 		$this->modules['settings'] = new Settings\Settings();
 
+		// Provider and listing handlers register shortcodes and form actions.
+		$this->modules['provider_handler'] = new Providers\ProviderHandler();
+		$this->modules['listing_handler']  = new Listings\ListingHandler();
+
 		if ( is_admin() ) {
 			$this->modules['admin'] = new Admin\Admin();
 		}
