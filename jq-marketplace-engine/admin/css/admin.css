@@ -1,0 +1,51 @@
+/**
+ * JQ Marketplace Engine — Admin styles.
+ */
+
+/* Settings tabs */
+.nav-tab-wrapper .nav-tab {
+	font-size: 13px;
+	padding: 6px 12px;
+}
+
+/* Dashboard stats */
+.jqme-dashboard-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 16px;
+	margin: 20px 0;
+}
+
+.jqme-stat-card {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	padding: 20px;
+}
+
+.jqme-stat-card h3 {
+	margin: 0 0 8px;
+	font-size: 14px;
+	color: #50575e;
+}
+
+.jqme-stat-card .jqme-stat-value {
+	font-size: 28px;
+	font-weight: 600;
+	color: #1d2327;
+}
+
+/* Status badges */
+.jqme-badge {
+	display: inline-block;
+	padding: 2px 8px;
+	border-radius: 3px;
+	font-size: 12px;
+	font-weight: 500;
+}
+
+.jqme-badge--success { background: #d4edda; color: #155724; }
+.jqme-badge--warning { background: #fff3cd; color: #856404; }
+.jqme-badge--danger  { background: #f8d7da; color: #721c24; }
+.jqme-badge--info    { background: #d1ecf1; color: #0c5460; }
+.jqme-badge--muted   { background: #e2e3e5; color: #383d41; }
