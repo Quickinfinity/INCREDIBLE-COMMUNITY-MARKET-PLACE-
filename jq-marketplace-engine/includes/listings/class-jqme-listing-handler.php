@@ -40,6 +40,7 @@ class ListingHandler {
 		add_shortcode( 'jqme_create_listing', [ $this, 'render_create_form' ] );
 		add_shortcode( 'jqme_edit_listing', [ $this, 'render_edit_form' ] );
 		add_shortcode( 'jqme_my_listings', [ $this, 'render_my_listings' ] );
+		add_shortcode( 'jqme_browse_listings', [ $this, 'render_browse_listings' ] );
 	}
 
 	/* ---------------------------------------------------------------
@@ -322,6 +323,13 @@ class ListingHandler {
 			$listings = Listing::query( [ 'provider_id' => $provider->id, 'limit' => 100 ] );
 			include $template;
 		}
+		return ob_get_clean();
+	}
+
+	public function render_browse_listings( $atts ): string {
+		$atts = shortcode_atts( [ 'type' => '' ], $atts, 'jqme_browse_listings' );
+		ob_start();
+		include JQME_PLUGIN_DIR . 'templates/browse-listings.php';
 		return ob_get_clean();
 	}
 

@@ -146,6 +146,12 @@ class AuditLogger {
 			$where[]  = 'user_id = %d';
 			$values[] = $args['user_id'];
 		}
+		if ( ! empty( $args['search'] ) ) {
+			$like     = '%' . $wpdb->esc_like( $args['search'] ) . '%';
+			$where[]  = '(context LIKE %s OR action LIKE %s)';
+			$values[] = $like;
+			$values[] = $like;
+		}
 
 		$where_sql = ! empty( $where ) ? 'WHERE ' . implode( ' AND ', $where ) : '';
 		$order     = 'DESC' === strtoupper( $args['order'] ) ? 'DESC' : 'ASC';
@@ -154,10 +160,45 @@ class AuditLogger {
 		$values[] = $args['limit'];
 		$values[] = $args['offset'];
 
-		if ( ! empty( $values ) ) {
-			$sql = $wpdb->prepare( $sql, $values ); // phpcs:ignore WordPress.DB.PreparedSQL
+		return $wpdb->get_results( $wpdb->prepare( $sql, $values ) ); // phpcs:ignore WordPress.DB.PreparedSQL
+	}
+
+	/**
+	 * Count audit log entries with optional filters.
+	 */
+	public static function count( array $args = [] ): int {
+		global $wpdb;
+
+		$table  = Core::table( 'audit_log' );
+		$where  = [];
+		$values = [];
+
+		if ( ! empty( $args['object_type'] ) ) {
+			$where[]  = 'object_type = %s';
+			$values[] = $args['object_type'];
+		}
+		if ( ! empty( $args['action'] ) ) {
+			$where[]  = 'action = %s';
+			$values[] = $args['action'];
+		}
+		if ( ! empty( $args['user_id'] ) ) {
+			$where[]  = 'user_id = %d';
+			$values[] = $args['user_id'];
+		}
+		if ( ! empty( $args['search'] ) ) {
+			$like     = '%' . $wpdb->esc_like( $args['search'] ) . '%';
+			$where[]  = '(context LIKE %s OR action LIKE %s)';
+			$values[] = $like;
+			$values[] = $like;
 		}
 
-		return $wpdb->get_results( $sql ); // phpcs:ignore WordPress.DB.PreparedSQL
+		$where_sql = ! empty( $where ) ? 'WHERE ' . implode( ' AND ', $where ) : '';
+
+		if ( ! empty( $values ) ) {
+			return (int) $wpdb->get_var( $wpdb->prepare(
+				"SELECT COUNT(*) FROM {$table} {$where_sql}", $values
+			) );
+		}
+		return (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$table}" ); // phpcs:ignore WordPress.DB.PreparedSQL
 	}
 }

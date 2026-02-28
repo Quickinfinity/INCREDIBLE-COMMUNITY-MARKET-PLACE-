@@ -85,6 +85,9 @@ class Core {
 		// Review handler — auto-creates reviews on booking completion.
 		$this->modules['review_handler'] = new Reviews\ReviewHandler();
 
+		// Cron task handler — scheduled maintenance and automation.
+		$this->modules['cron'] = new Cron();
+
 		if ( is_admin() ) {
 			$this->modules['admin'] = new Admin\Admin();
 		}
